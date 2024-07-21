@@ -1,4 +1,4 @@
-package kreturntype
+package kreturntypes
 
 import (
 	"time"
