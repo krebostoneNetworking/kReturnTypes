@@ -2,6 +2,8 @@ package kreturntypes
 
 import (
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 type ReturnTypes struct {
@@ -26,5 +28,22 @@ func GenResultWithoutData(target_code int, msg string) ReturnTypes {
 		Message: msg,
 		Timestamp: time.Now(),
 		Data: nil,
+	}
+}
+
+func GenGinHWithData(target_code int, msg string, data any) gin.H {
+	return gin.H{
+		"code": target_code,
+		"message": msg,
+		"timestamp": time.Now(),
+		"data": data,
+	}
+}
+
+func GenGinHWithoutData(target_code int, msg string) gin.H {
+	return gin.H{
+		"code": target_code,
+		"message": msg,
+		"timestamp": time.Now(),
 	}
 }
